@@ -1,0 +1,1726 @@
+{
+  "intents": [
+    {
+      "intent": "ConfirmarEntrega",
+      "examples": [
+        {
+          "text": "confirmar entrega"
+        },
+        {
+          "text": "ConfirmarEntrega"
+        },
+        {
+          "text": "confirmar entrega do pedido"
+        },
+        {
+          "text": "pedido entregue"
+        }
+      ],
+      "description": "Clinica"
+    },
+    {
+      "intent": "encerrar",
+      "examples": [
+        {
+          "text": "Encerrar"
+        },
+        {
+          "text": "obrigado"
+        },
+        {
+          "text": "sair"
+        },
+        {
+          "text": "tchau"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "EntregaNãoConcluida",
+      "examples": [
+        {
+          "text": "clinica não recebeu medicamento"
+        },
+        {
+          "text": "EntregaNãoConcluida"
+        },
+        {
+          "text": "não consegui completar a entrega"
+        },
+        {
+          "text": "não tinha ninguem para receber na clinica"
+        },
+        {
+          "text": "pedido incorreto"
+        },
+        {
+          "text": "pedidoincorreto"
+        }
+      ],
+      "description": "Fornecedor"
+    },
+    {
+      "intent": "Feedback",
+      "examples": [
+        {
+          "text": "escrever sugestão"
+        },
+        {
+          "text": "fazer comentário"
+        },
+        {
+          "text": "feedback"
+        },
+        {
+          "text": "quero deixar um feedback"
+        }
+      ],
+      "description": "Cliente"
+    },
+    {
+      "intent": "NotificacaoClinica",
+      "examples": [
+        {
+          "text": "notificacao clinica"
+        },
+        {
+          "text": "notificacaoClinica"
+        },
+        {
+          "text": "notificação clinica"
+        },
+        {
+          "text": "recebi uma notificação"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "NotificarFornecedor",
+      "examples": [
+        {
+          "text": "notificar fornecedor"
+        },
+        {
+          "text": "Notificarfornecedor"
+        }
+      ],
+      "description": "clinica"
+    },
+    {
+      "intent": "NotificarPaciente",
+      "examples": [
+        {
+          "text": "adedanha"
+        },
+        {
+          "text": "avisar cliente"
+        },
+        {
+          "text": "notificar cliente"
+        },
+        {
+          "text": "notificar paciente"
+        },
+        {
+          "text": "NotificarPaciente"
+        },
+        {
+          "text": "quero enviar notificação para minha paciente"
+        },
+        {
+          "text": "quero mandar notificação para cliente"
+        }
+      ],
+      "description": "Clinica para paciente"
+    },
+    {
+      "intent": "saudação",
+      "examples": [
+        {
+          "text": "boa noite"
+        },
+        {
+          "text": "boa tarde"
+        },
+        {
+          "text": "bom dia"
+        },
+        {
+          "text": "ei"
+        },
+        {
+          "text": "hello"
+        },
+        {
+          "text": "hey"
+        },
+        {
+          "text": "oi"
+        },
+        {
+          "text": "oie"
+        },
+        {
+          "text": "olá"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "TemAgenda",
+      "examples": [
+        {
+          "text": "agendamento"
+        },
+        {
+          "text": "tem agenda"
+        }
+      ],
+      "description": "Cliente"
+    },
+    {
+      "intent": "UploadFoto",
+      "examples": [
+        {
+          "text": "Fazer upload foto"
+        },
+        {
+          "text": "mandar guia"
+        },
+        {
+          "text": "quero enviar o token"
+        },
+        {
+          "text": "upload foto"
+        },
+        {
+          "text": "UploadFoto"
+        }
+      ],
+      "description": "Fornecedor"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "clinica",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Clinica1",
+          "synonyms": [
+            "id147"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Clinica1.2",
+          "synonyms": [
+            "id258"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "cpf",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "cpf",
+          "synonyms": [
+            "[0-9]{3}.?[0-9]{3}.?[0-9]{3}(-?[0-9]{2})?"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "pessoa1",
+          "synonyms": [
+            "13825337057"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "pessoa2",
+          "synonyms": [
+            "42060831008"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "decisao",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Não",
+          "synonyms": [
+            "n",
+            "nao",
+            "não ",
+            "naum"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "sim",
+          "synonyms": [
+            "foi",
+            "s ",
+            "si",
+            "sim ",
+            "sin",
+            "yes"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "fornecedor",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Fornecedor 1",
+          "synonyms": [
+            "abc123"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Fornecedor 2",
+          "synonyms": [
+            "ghi456"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-date",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "token",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "senha1",
+          "synonyms": [
+            "741"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "senha2",
+          "synonyms": [
+            "852"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    },
+    "from-sample": true
+  },
+  "webhooks": [
+    {
+      "url": "https://api.imgbb.com/1/upload",
+      "name": "main_webhook",
+      "headers": []
+    }
+  ],
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Bem-vindo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Olá. Como posso te ajudar?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "title": "Em outros casos",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Eu não entendi. Você pode tentar reformular a frase."
+              },
+              {
+                "text": "Você pode reformular sua afirmação? Eu não estou entendendo."
+              },
+              {
+                "text": "Eu não entendi o sentido."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Em outros casos",
+      "previous_sibling": "node_2_1656243464999",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ok."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1656205251797",
+      "context": {
+        "step": "fornecedor"
+      },
+      "conditions": "#UploadFoto",
+      "dialog_node": "node_10_1656205251801",
+      "previous_sibling": "response_4_1656205279924"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Enviado! ✅"
+              },
+              {
+                "text": "A entrega foi feita dentro do prazo para o procedimento?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          },
+          {
+            "title": "",
+            "options": [
+              {
+                "label": "Sim",
+                "value": {
+                  "input": {
+                    "text": "sim"
+                  }
+                }
+              },
+              {
+                "label": "Não",
+                "value": {
+                  "input": {
+                    "text": "nao"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_3_1656204510978",
+      "context": {
+        "step": "clinica"
+      },
+      "conditions": "#NotificarPaciente",
+      "dialog_node": "node_10_1656211187349",
+      "previous_sibling": "node_5_1656204510980"
+    },
+    {
+      "type": "standard",
+      "title": "Encerrar Fornecedor",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ok, $fornecedor."
+              },
+              {
+                "text": "Sua sessão está sendo encerrada. ⭕️"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "context": {
+        "step": "fornecedor"
+      },
+      "dialog_node": "node_10_1656216537647",
+      "previous_sibling": "node_1_1656243322464"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "No que posso te ajudar? "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1656216518540",
+      "conditions": "@decisao:sim",
+      "dialog_node": "node_10_1656243015668"
+    },
+    {
+      "type": "standard",
+      "parent": "node_7_1656174212993",
+      "context": {
+        "cpf": "<? @cpf.literal.replaceAll('\\D','') ?>",
+        "step": "cliente"
+      },
+      "dialog_node": "node_1_1656174226281"
+    },
+    {
+      "type": "standard",
+      "title": "Validação Fornecedor/ Cliente/ Clinica",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "",
+      "dialog_node": "node_1_1656194112919",
+      "previous_sibling": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Obrigado pelo feedback, $user! 😊"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1656215740364",
+      "context": {
+        "step": "cliente",
+        "cliente": "feedback",
+        "feedback": "<? input.text ?>"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_3_1656216518540"
+      },
+      "conditions": "anything_else",
+      "dialog_node": "node_1_1656216061607"
+    },
+    {
+      "type": "standard",
+      "title": "invalido",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Opa, não consegui entender! 😅"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "node_8_1656207529053",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_8_1656204923793"
+      },
+      "conditions": "anything_else",
+      "dialog_node": "node_1_1656216220949"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Certo $user, por favor, entre em contato com a Clinica X, pelo número 📞 (xx) xxxx-xxxx para marcar seu agendamento."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1656197521400",
+      "context": {
+        "step": "cliente"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_3_1656216518540"
+      },
+      "conditions": "@decisao:Não",
+      "dialog_node": "node_1_1656220154037",
+      "previous_sibling": "node_8_1656220276731"
+    },
+    {
+      "type": "standard",
+      "title": "Algo mais? clinica",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Posso te ajudar em algo mais?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "dialog_node": "node_1_1656243322464",
+      "previous_sibling": "node_3_1656216518540"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1656175890863",
+      "context": {
+        "step": "clinica"
+      },
+      "dialog_node": "node_2_1656175906493"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "*Notificação* ⚠️"
+              },
+              {
+                "text": "O pedido de *token número X* não foi entregue corretamente."
+              },
+              {
+                "text": "A clinica solicitou troca para data X."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "node_9_1656205251797",
+      "context": {
+        "step": "fornecedor"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_10_1656216537647"
+      },
+      "conditions": "#EntregaNãoConcluida",
+      "dialog_node": "node_2_1656206969920",
+      "previous_sibling": "node_10_1656205251801"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "No que posso te ajudar? "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1656243322464",
+      "conditions": "@decisao:sim",
+      "dialog_node": "node_2_1656243322468"
+    },
+    {
+      "type": "standard",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "#encerrar",
+      "dialog_node": "node_2_1656243464999",
+      "previous_sibling": "node_4_1656216679513"
+    },
+    {
+      "type": "standard",
+      "title": "Clinica",
+      "parent": "node_4_1656175890863",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "@clinica",
+      "dialog_node": "node_3_1656204510978",
+      "previous_sibling": "node_2_1656175906493"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Perfeito $user!\nTe esperamos então.\n"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1656220276731",
+      "context": {
+        "ConfirmaAgenda": {
+          "": "<? @sys-date ?>"
+        }
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_3_1656216518540"
+      },
+      "conditions": "@sys-date",
+      "dialog_node": "node_3_1656215181460"
+    },
+    {
+      "type": "standard",
+      "title": "Algo mais? cliente",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Posso te ajudar em algo mais, $user?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "dialog_node": "node_3_1656216518540",
+      "previous_sibling": "node_4_1656175890863"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "title": "",
+            "options": [
+              {
+                "label": "Encerrar sessão",
+                "value": {
+                  "input": {
+                    "text": "encerrar"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_1_1656243322464",
+      "conditions": "@decisao:Não",
+      "dialog_node": "node_3_1656243322468",
+      "previous_sibling": "node_2_1656243322468"
+    },
+    {
+      "type": "folder",
+      "title": "Clinica",
+      "conditions": "@clinica",
+      "dialog_node": "node_4_1656175890863",
+      "previous_sibling": "node_7_1656174212993"
+    },
+    {
+      "type": "standard",
+      "parent": "node_7_1656174212993",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "@cpf",
+      "dialog_node": "node_4_1656197521400",
+      "previous_sibling": "node_1_1656174226281"
+    },
+    {
+      "type": "standard",
+      "title": "Encerrar Cliente",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sua sessão está sendo encerrada, #user. "
+              },
+              {
+                "text": "Estou a disposição caso precise. 👋"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "context": {
+        "step": "cliente"
+      },
+      "dialog_node": "node_4_1656216679513",
+      "previous_sibling": "node_8_1656216629264"
+    },
+    {
+      "type": "standard",
+      "title": "Notificação",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Olá $clinica. "
+              },
+              {
+                "text": "*Notificação* ⚠️"
+              },
+              {
+                "text": "O fornecedor acabou de entregar o pedido da guia número *1271368*. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "node_3_1656204510978",
+      "context": {
+        "step": "clinica"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_8_1656216629264"
+      },
+      "conditions": "#NotificacaoClinica",
+      "dialog_node": "node_5_1656204510980",
+      "previous_sibling": "node_7_1656217672096"
+    },
+    {
+      "type": "standard",
+      "parent": "node_9_1656174270665",
+      "context": {
+        "step": "fornecedor"
+      },
+      "dialog_node": "node_6_1656174359591"
+    },
+    {
+      "type": "standard",
+      "title": "Confirmação pedido",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Confirmar pedido?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "title": "",
+            "options": [
+              {
+                "label": "Sim, notificar paciente. ",
+                "value": {
+                  "input": {
+                    "text": "NotificarPaciente"
+                  }
+                }
+              },
+              {
+                "label": "Pedido incorreto",
+                "value": {
+                  "input": {
+                    "text": "pedido incorreto"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_3_1656204510978",
+      "context": {
+        "step": "clinica",
+        "clinica": {
+          "": "<? @clinica ?>"
+        }
+      },
+      "conditions": "#ConfirmarEntrega",
+      "dialog_node": "node_6_1656218533581",
+      "previous_sibling": "response_7_1656204533419"
+    },
+    {
+      "type": "standard",
+      "title": "copy 1",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Enviado! ✅"
+              },
+              {
+                "text": "A entrega foi feita dentro do prazo para o procedimento?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          },
+          {
+            "title": "",
+            "options": [
+              {
+                "label": "Sim",
+                "value": {
+                  "input": {
+                    "text": "sim"
+                  }
+                }
+              },
+              {
+                "label": "Não",
+                "value": {
+                  "input": {
+                    "text": "nao"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_6_1656218533581",
+      "context": {
+        "step": "clinica"
+      },
+      "conditions": "#NotificarPaciente",
+      "dialog_node": "node_6_1656245725651"
+    },
+    {
+      "type": "folder",
+      "title": "cliente",
+      "conditions": "@cpf",
+      "dialog_node": "node_7_1656174212993",
+      "previous_sibling": "node_9_1656174270665"
+    },
+    {
+      "type": "standard",
+      "title": "Deixar feedback",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Claro! 🙌 O que deseja comentar?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1656197521400",
+      "context": {
+        "step": "cliente",
+        "cliente": "feedback"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_1_1656216061607"
+      },
+      "conditions": "#Feedback",
+      "dialog_node": "node_7_1656215740364",
+      "previous_sibling": "node_1_1656220154037"
+    },
+    {
+      "type": "standard",
+      "title": "Notificar Fornecedor?",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Enviar notificação ao fornecedor?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "title": "",
+            "options": [
+              {
+                "label": "Enviar",
+                "value": {
+                  "input": {
+                    "text": "notificar fornecedor"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_3_1656204510978",
+      "conditions": "#NotificarFornecedor",
+      "dialog_node": "node_7_1656217672096",
+      "previous_sibling": "node_8_1656204923793"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "title": "",
+            "options": [
+              {
+                "label": "Encerrar sessão",
+                "value": {
+                  "input": {
+                    "text": "encerrar"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_3_1656216518540",
+      "conditions": "@decisao:Não",
+      "dialog_node": "node_7_1656243144143",
+      "previous_sibling": "node_10_1656243015668"
+    },
+    {
+      "type": "standard",
+      "title": "Decisão prazo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Obrigado, sua resposta nos ajuda a melhorar nossos fornecedores."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_6_1656245725651",
+      "context": {
+        "step": "clinica",
+        "prazo": "<? input.text ?>",
+        "clinica": "prazo"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1656243322464"
+      },
+      "conditions": "@decisao",
+      "dialog_node": "node_7_1656245725654"
+    },
+    {
+      "type": "standard",
+      "title": "Pedido incorreto",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Qual a melhor data para que o fornecedor faça a troca do pedido?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1656204510978",
+      "context": {
+        "step": "clinica",
+        "clinica": "data"
+      },
+      "conditions": "#EntregaNãoConcluida",
+      "dialog_node": "node_8_1656204923793",
+      "previous_sibling": "node_6_1656218533581"
+    },
+    {
+      "type": "standard",
+      "title": "data ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ok, estou enviando o pedido para troca para $data. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "node_8_1656204923793",
+      "context": {
+        "data": "<? @sys-date ?>"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_7_1656217672096"
+      },
+      "conditions": "@sys-date",
+      "dialog_node": "node_8_1656207529053"
+    },
+    {
+      "type": "standard",
+      "title": "Encerrar Clinica",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sua sessão está sendo encerrada. ⭕️"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "step": "clinica"
+      },
+      "dialog_node": "node_8_1656216629264",
+      "previous_sibling": "node_10_1656216537647"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Você pode confirmar, por favor, o dia do seu procedimento? (dd/mm/aa) 🤔"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1656197521400",
+      "context": {
+        "step": "cliente",
+        "cliente": "ConfirmaAgenda"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "user_input",
+        "dialog_node": "node_3_1656215181460"
+      },
+      "conditions": "#TemAgenda",
+      "dialog_node": "node_8_1656220276731"
+    },
+    {
+      "type": "folder",
+      "title": "fornecedor",
+      "conditions": "@fornecedor",
+      "dialog_node": "node_9_1656174270665",
+      "previous_sibling": "node_1_1656194112919"
+    },
+    {
+      "type": "standard",
+      "parent": "node_9_1656174270665",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "@fornecedor",
+      "dialog_node": "node_9_1656205251797",
+      "previous_sibling": "node_6_1656174359591"
+    },
+    {
+      "type": "standard",
+      "title": "Decisão prazo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Obrigado, sua resposta nos ajuda a melhorar nossos fornecedores."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_10_1656211187349",
+      "context": {
+        "step": "clinica",
+        "prazo": "<? input.text ?>",
+        "clinica": "prazo"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1656243322464"
+      },
+      "conditions": "@decisao",
+      "dialog_node": "node_9_1656211272071"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Enviado! ✅"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_7_1656217672096",
+      "context": {
+        "step": "clinica"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1656243322464"
+      },
+      "conditions": "#NotificarFornecedor",
+      "dialog_node": "node_9_1656217287500"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Olá $fornecedor."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "No que posso te ajudar hoje?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "title": "",
+            "options": [
+              {
+                "label": "Enviar foto 📷",
+                "value": {
+                  "input": {
+                    "text": "UploadFoto"
+                  }
+                }
+              },
+              {
+                "label": "Entrega não concluída ",
+                "value": {
+                  "input": {
+                    "text": "EntregaNãoConcluida"
+                  }
+                }
+              },
+              {
+                "label": "Notificações ",
+                "value": {
+                  "input": {
+                    "text": "EntregaNãoConcluida"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_9_1656205251797",
+      "context": {
+        "step": "fornecedor",
+        "fornecedor": "<? @fornecedor ?>"
+      },
+      "conditions": "@fornecedor:(Fornecedor 1)",
+      "dialog_node": "response_2_1656205264422"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Olá $user! 🙋🏻"
+              },
+              {
+                "text": "Ótimas notícias! Seu medicamento chegou na Clinica X! "
+              },
+              {
+                "text": "Você já tem agendamento? 🤔"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          },
+          {
+            "title": "",
+            "options": [
+              {
+                "label": "Sim",
+                "value": {
+                  "input": {
+                    "text": "tem agenda"
+                  }
+                }
+              },
+              {
+                "label": "Não",
+                "value": {
+                  "input": {
+                    "text": "nao"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_4_1656197521400",
+      "context": {
+        "step": "cliente",
+        "user": "<? @cpf.literal.replaceAll('\\D','') ?>"
+      },
+      "conditions": "@cpf:pessoa1",
+      "dialog_node": "response_2_1656213728470",
+      "previous_sibling": "node_7_1656215740364"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ok, $fornecedor."
+              },
+              {
+                "text": "Sua sessão está sendo encerrada. ⭕️"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "node_2_1656243464999",
+      "context": {
+        "step": "fornecedor"
+      },
+      "conditions": "$fornecedor",
+      "dialog_node": "response_2_1656243655984",
+      "previous_sibling": "response_7_1656243639598"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "*Notificação* ⚠️"
+              },
+              {
+                "text": "O pedido de *token número X* não foi entregue corretamente."
+              },
+              {
+                "text": "A clinica, solicitou troca para data x."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "node_9_1656205251797",
+      "context": {
+        "step": "fornecedor "
+      },
+      "conditions": "@fornecedor:(Fornecedor 2) || #EntregaNãoConcluida",
+      "dialog_node": "response_4_1656205279924",
+      "previous_sibling": "response_2_1656205264422"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": []
+      },
+      "parent": "node_1_1656194112919",
+      "context": {
+        "step": "clinica"
+      },
+      "conditions": "@clinica",
+      "dialog_node": "response_4_1656216803829",
+      "previous_sibling": "response_5_1656194248689"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sua sessão está sendo encerrada, #user. "
+              },
+              {
+                "text": "Estou a disposição caso precise. 👋"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          }
+        ]
+      },
+      "parent": "node_2_1656243464999",
+      "conditions": "$cliente",
+      "dialog_node": "response_4_1656243669443",
+      "previous_sibling": "response_2_1656243655984"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": []
+      },
+      "parent": "node_1_1656194112919",
+      "context": {
+        "step": "$fornecedor"
+      },
+      "conditions": "@fornecedor",
+      "dialog_node": "response_5_1656194118497"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": []
+      },
+      "parent": "node_1_1656194112919",
+      "context": {
+        "step": "$cliente"
+      },
+      "conditions": "@cpf",
+      "dialog_node": "response_5_1656194248689",
+      "previous_sibling": "response_5_1656194118497"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Olá $clinica."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "No que posso te ajudar?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "title": "",
+            "options": [
+              {
+                "label": "Notificações",
+                "value": {
+                  "input": {
+                    "text": "Notificacao clinica"
+                  }
+                }
+              },
+              {
+                "label": "Confirmar pedido",
+                "value": {
+                  "input": {
+                    "text": "ConfirmarEntrega"
+                  }
+                }
+              },
+              {
+                "label": "Pedido incorreto",
+                "value": {
+                  "input": {
+                    "text": "pedido incorreto"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_3_1656204510978",
+      "context": {
+        "step": "clinica",
+        "clinica": "<? @clinica ?>"
+      },
+      "conditions": "@clinica:Clinica1",
+      "dialog_node": "response_5_1656204516303"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "*Notificação* ⚠️"
+              },
+              {
+                "text": "O fornecedor acabou de entregar o pedido da guia número *1271368*."
+              },
+              {
+                "text": "Confirmar pedido?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          },
+          {
+            "title": "",
+            "options": [
+              {
+                "label": "Sim, notificar paciente.",
+                "value": {
+                  "input": {
+                    "text": "NotificarPaciente"
+                  }
+                }
+              },
+              {
+                "label": "Pedido incorreto",
+                "value": {
+                  "input": {
+                    "text": "pedido incorreto"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_3_1656204510978",
+      "context": {
+        "step": "clinica",
+        "clinica": "<? @clinica ?>"
+      },
+      "conditions": "@clinica:(Clinica1.2)",
+      "dialog_node": "response_7_1656204533419",
+      "previous_sibling": "response_5_1656204516303"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Olá, $user! 🙋🏻"
+              },
+              {
+                "text": "Como posso te ajudar?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "multiline"
+          },
+          {
+            "title": "",
+            "options": [
+              {
+                "label": "Agendamento 📅",
+                "value": {
+                  "input": {
+                    "text": "TemAgenda"
+                  }
+                }
+              },
+              {
+                "label": "Registrar feedback 🗳",
+                "value": {
+                  "input": {
+                    "text": "deixar feedback "
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_4_1656197521400",
+      "context": {
+        "step": "cliente",
+        "user": "<? @cpf.literal.replaceAll('\\D','') ?>"
+      },
+      "conditions": "@cpf:pessoa2",
+      "dialog_node": "response_7_1656213741497",
+      "previous_sibling": "response_2_1656213728470"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sua sessão está sendo encerrada. ⭕️"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1656243464999",
+      "conditions": "$clinica",
+      "dialog_node": "response_7_1656243639598"
+    }
+  ],
+  "counterexamples": [
+    {
+      "text": "avisar cliente"
+    },
+    {
+      "text": "nao"
+    }
+  ],
+  "system_settings": {
+    "nlp": {
+      "model": "baseline"
+    },
+    "disambiguation": {
+      "prompt": "Você quis dizer:",
+      "enabled": false,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "Nenhuma das anteriores"
+    },
+    "human_agent_assist": {
+      "prompt": "Você quis dizer:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "Unimed",
+  "language": "pt-br",
+  "description": ""
+}

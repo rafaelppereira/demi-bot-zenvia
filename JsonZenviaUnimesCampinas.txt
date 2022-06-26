@@ -1,0 +1,647 @@
+{
+  "alias": "Unimed",
+  "description": "",
+  "steps": [
+    {
+      "id": "step011",
+      "type": "sendChatActivity",
+      "label": "Invalido ",
+      "properties": {
+        "from": "#{session['chatFrom']}"
+      },
+      "contents": [
+        {
+          "type": "text/plain",
+          "payload": {
+            "text": "Infelizmente o arquivo importado não está no formato correto. Por favor, envie um arquivo em JPEG, PNG ou PDF. "
+          }
+        }
+      ]
+    },
+    {
+      "id": "step020",
+      "type": "sendChatActivity",
+      "properties": {
+        "from": "#{session['chatFrom']}"
+      },
+      "contents": [
+        {
+          "type": "application/vnd.zenvia.v1.quickreply+json",
+          "payload": {
+            "json": {
+              "buttons": [
+                {
+                  "type": "postback",
+                  "text": "Sim",
+                  "payload": "sim"
+                },
+                {
+                  "type": "postback",
+                  "text": "Não",
+                  "payload": "não"
+                }
+              ],
+              "text": "Você deseja realizar outra entrega?"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "step012",
+      "type": "sendChatActivity",
+      "properties": {
+        "from": "#{session['chatFrom']}"
+      },
+      "contents": [
+        {
+          "type": "text/plain",
+          "payload": {
+            "text": "Se identifique, por favor. 📋"
+          }
+        }
+      ]
+    },
+    {
+      "id": "step05",
+      "type": "sendChatActivity",
+      "label": "Despedida",
+      "properties": {
+        "from": "#{session['chatFrom']}"
+      },
+      "contents": [
+        {
+          "type": "text/plain",
+          "payload": {
+            "text": "Sua sessão está sendo encerrada. ⭕️"
+          }
+        }
+      ]
+    },
+    {
+      "id": "step02",
+      "type": "apiActivity",
+      "label": "Chamada de API",
+      "properties": {
+        "from": "#{#random.randomAlphanumeric(12)}",
+        "timeUnit": "minute",
+        "expirationInMinutes": ""
+      },
+      "contents": [
+        {
+          "type": "application/json",
+          "payload": {
+            "json": {
+              "payload": {
+                "input": {
+                  "text": "#{userMsg}"
+                }
+              },
+              "httpHeaders": {
+                "Content-Type": "application/json"
+              },
+              "httpMethod": "POST",
+              "url": "https://api.us-east.assistant.watson.cloud.ibm.com/instances/7abdc680-4193-4556-93b7-358823e11f0a/v1/workspaces/d0e2f8da-367f-442e-b089-a675dd3f2d17/message/?version=2018-09-20"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "step023",
+      "type": "branch",
+      "label": "Outra entrega?"
+    },
+    {
+      "id": "step025",
+      "type": "sendChatActivity",
+      "properties": {
+        "from": "#{session['chatFrom']}"
+      },
+      "contents": [
+        {
+          "type": "text/plain",
+          "payload": {
+            "text": "Posso te ajudar em algo mais #{fornecedor}?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "step016",
+      "type": "sendChatActivity",
+      "properties": {
+        "from": "#{session['chatFrom']}"
+      },
+      "contents": [
+        {
+          "type": "text/plain",
+          "payload": {
+            "text": "Registrar dados na CMC"
+          }
+        }
+      ]
+    },
+    {
+      "id": "step0",
+      "type": "branch",
+      "label": "Pós Watson"
+    },
+    {
+      "id": "idEventoFinal",
+      "type": "endEvent",
+      "label": "label 3",
+      "properties": {
+        "endEvent": "true"
+      }
+    },
+    {
+      "id": "step04",
+      "type": "chatEvent",
+      "properties": {
+        "timeUnit": "minute",
+        "expirationInMinutes": ""
+      },
+      "variables": {
+        "userMsg": "payload"
+      }
+    },
+    {
+      "id": "step018",
+      "type": "fork",
+      "properties": {
+        "timeUnit": "minute",
+        "expirationInMinutes": ""
+      }
+    },
+    {
+      "id": "step09",
+      "type": "branch",
+      "label": "arq valido?"
+    },
+    {
+      "id": "step06",
+      "type": "sendChatActivity",
+      "properties": {
+        "from": "#{session['chatFrom']}"
+      },
+      "contents": [
+        {
+          "type": "text/plain",
+          "payload": {
+            "text": "Pode me enviar a foto com o *token* da guia?"
+          }
+        }
+      ]
+    },
+    {
+      "id": "idEventoInicial",
+      "type": "chatEvent",
+      "label": "Evento inicial",
+      "properties": {
+        "startEvent": "true"
+      },
+      "variables": {
+        "chatFrom": "'90fe69f5033bbd276f07fa603e304c15'"
+      },
+      "conditions": [
+        {
+          "type": "channelSourceCondition",
+          "values": [
+            "90fe69f5033bbd276f07fa603e304c15"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "step03",
+      "type": "callComponent",
+      "label": "Integração Watson",
+      "properties": {
+        "componentId": "a531c540-9627-4fbf-891b-567ea61b7a64",
+        "timeUnit": "minute",
+        "expirationInMinutes": ""
+      },
+      "inputs": {
+        "url_Watson": "'https://api.us-east.assistant.watson.cloud.ibm.com'",
+        "userId_Watson": "''",
+        "intents": "'UploadFoto, encerrar,'",
+        "resource_Watson": "'/instances/7abdc680-4193-4556-93b7-358823e11f0a/v1/workspaces/d0e2f8da-367f-442e-b089-a675dd3f2d17/message/?version=2018-09-20'",
+        "authorization_Watson": "'Basic YXBpa2V5OnRxNERFcTN3eFFmWllMeG1fdzNCeVpfR3g0S3ZicVEydzM3dF96VHJ5SUNV'"
+      }
+    },
+    {
+      "id": "step024",
+      "type": "chatEvent",
+      "label": "não",
+      "properties": {
+        "timeUnit": "minute",
+        "expirationInMinutes": ""
+      },
+      "variables": {
+        "algomais": "payload"
+      }
+    },
+    {
+      "id": "step013",
+      "type": "sendChatActivity",
+      "properties": {
+        "from": "#{session['chatFrom']}"
+      },
+      "contents": [
+        {
+          "type": "application/vnd.zenvia.v1.quickreply+json",
+          "payload": {
+            "json": {
+              "text": "Identificamos o pedido de *token* *1271368*\nVocê confirma?",
+              "buttons": [
+                {
+                  "type": "postback",
+                  "text": "Sim",
+                  "payload": "sim"
+                },
+                {
+                  "type": "postback",
+                  "text": "Não",
+                  "payload": "não"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "step015",
+      "type": "branch",
+      "label": "Token valido?"
+    },
+    {
+      "id": "step019",
+      "type": "timerEvent",
+      "properties": {
+        "expiresInMinutes": 0.5,
+        "timeUnit": "minute",
+        "expirationInMinutes": ""
+      }
+    },
+    {
+      "id": "step028",
+      "type": "sendChatActivity",
+      "properties": {
+        "from": "#{session['chatFrom']}"
+      },
+      "contents": [
+        {
+          "type": "application/vnd.zenvia.v1.quickreply+json",
+          "payload": {
+            "json": {
+              "buttons": [
+                {
+                  "type": "postback",
+                  "text": "Enviar",
+                  "payload": "notificacao Clinica"
+                }
+              ],
+              "text": "Notificar a clinica!"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "step08",
+      "type": "chatEvent",
+      "properties": {
+        "timeUnit": "minute",
+        "expirationInMinutes": ""
+      },
+      "variables": {
+        "fotoToken": "payload"
+      }
+    },
+    {
+      "id": "step022",
+      "type": "exclusiveJoin",
+      "properties": {
+        "timeUnit": "minute",
+        "expirationInMinutes": ""
+      }
+    },
+    {
+      "id": "step026",
+      "type": "branch",
+      "label": "algo mais decisao"
+    },
+    {
+      "id": "step017",
+      "type": "sendChatActivity",
+      "properties": {
+        "from": "#{session['chatFrom']}"
+      },
+      "contents": [
+        {
+          "type": "text/plain",
+          "payload": {
+            "text": "Tire uma nova foto, para que possamos identificar o token, por favor."
+          }
+        }
+      ]
+    },
+    {
+      "id": "step014",
+      "type": "chatEvent",
+      "properties": {
+        "timeUnit": "minute",
+        "expirationInMinutes": ""
+      },
+      "variables": {
+        "tokenValido": "payload"
+      }
+    },
+    {
+      "id": "step021",
+      "type": "chatEvent",
+      "properties": {
+        "timeUnit": "minute",
+        "expirationInMinutes": ""
+      },
+      "variables": {
+        "outraEntrega": "payload"
+      }
+    },
+    {
+      "id": "step030",
+      "type": "sendChatActivity",
+      "properties": {
+        "from": "#{session['chatFrom']}"
+      },
+      "contents": [
+        {
+          "type": "text/plain",
+          "payload": {
+            "text": "Olá! 👋 \nEu sou a *Demi*! Gestora virtual da *CMC* 🙋🏻 !"
+          }
+        }
+      ]
+    },
+    {
+      "id": "step031",
+      "type": "sendChatActivity",
+      "properties": {
+        "from": "#{session['chatFrom']}"
+      },
+      "contents": [
+        {
+          "type": "text/plain",
+          "payload": {
+            "text": "N° de liberação: *1271368*\n"
+          }
+        }
+      ]
+    },
+    {
+      "id": "step07",
+      "type": "nop",
+      "properties": {
+        "timeUnit": "minute",
+        "expirationInMinutes": ""
+      },
+      "variables": {
+        "tokenValido": "'sim'"
+      }
+    },
+    {
+      "id": "step010",
+      "type": "nop",
+      "label": "outraEntrega == sim",
+      "properties": {
+        "timeUnit": "minute",
+        "expirationInMinutes": ""
+      },
+      "variables": {
+        "outraEntrega": "'sim'"
+      }
+    }
+  ],
+  "connections": [
+    {
+      "from": "step016",
+      "to": "step018"
+    },
+    {
+      "from": "step0",
+      "to": "idEventoFinal",
+      "label": "encerrar",
+      "conditions": [
+        {
+          "type": "elCondition",
+          "expression": "out01 == 'encerrar'"
+        }
+      ]
+    },
+    {
+      "from": "step011",
+      "to": "step08"
+    },
+    {
+      "from": "step0",
+      "to": "step06",
+      "label": "UploadFoto",
+      "conditions": [
+        {
+          "type": "elCondition",
+          "expression": "out01 == 'UploadFoto'"
+        }
+      ]
+    },
+    {
+      "from": "step026",
+      "to": "step05",
+      "label": "não",
+      "conditions": [
+        {
+          "type": "elCondition",
+          "expression": "algomais matches 'não'"
+        }
+      ]
+    },
+    {
+      "from": "step017",
+      "to": "step08"
+    },
+    {
+      "from": "step025",
+      "to": "step024"
+    },
+    {
+      "from": "step014",
+      "to": "step015"
+    },
+    {
+      "from": "step018",
+      "to": "step019"
+    },
+    {
+      "from": "step012",
+      "to": "step04"
+    },
+    {
+      "from": "step02",
+      "to": "step03"
+    },
+    {
+      "from": "step06",
+      "to": "step08"
+    },
+    {
+      "from": "step013",
+      "to": "step014"
+    },
+    {
+      "from": "step026",
+      "to": "step04",
+      "isDefault": true
+    },
+    {
+      "from": "step024",
+      "to": "step026"
+    },
+    {
+      "from": "step04",
+      "to": "step02"
+    },
+    {
+      "from": "step015",
+      "to": "step016",
+      "label": "sim ",
+      "conditions": [
+        {
+          "type": "keywordCondition",
+          "values": [
+            "sim",
+            "s"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "step023",
+      "to": "step025",
+      "label": "Não ",
+      "conditions": [
+        {
+          "type": "keywordCondition",
+          "values": [
+            "não",
+            "nao",
+            "n"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "step028",
+      "to": "step022"
+    },
+    {
+      "from": "step05",
+      "to": "idEventoFinal"
+    },
+    {
+      "from": "step03",
+      "to": "step0"
+    },
+    {
+      "from": "step08",
+      "to": "step09"
+    },
+    {
+      "from": "step015",
+      "to": "step017",
+      "label": "não ",
+      "conditions": [
+        {
+          "type": "keywordCondition",
+          "values": [
+            "não",
+            "nao",
+            "n"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "idEventoInicial",
+      "to": "step030"
+    },
+    {
+      "from": "step030",
+      "to": "step012"
+    },
+    {
+      "from": "step031",
+      "to": "step013"
+    },
+    {
+      "from": "step09",
+      "to": "step011",
+      "label": "Inválido",
+      "isDefault": true
+    },
+    {
+      "from": "step019",
+      "to": "step020"
+    },
+    {
+      "from": "step018",
+      "to": "step07"
+    },
+    {
+      "from": "step07",
+      "to": "step028"
+    },
+    {
+      "from": "step023",
+      "to": "step010",
+      "label": "sim",
+      "conditions": [
+        {
+          "type": "keywordCondition",
+          "values": [
+            "sim",
+            "s"
+          ]
+        }
+      ]
+    },
+    {
+      "from": "step010",
+      "to": "step06"
+    },
+    {
+      "from": "step020",
+      "to": "step022"
+    },
+    {
+      "from": "step022",
+      "to": "step021"
+    },
+    {
+      "from": "step021",
+      "to": "step023"
+    },
+    {
+      "from": "step09",
+      "to": "step031",
+      "conditions": [
+        {
+          "type": "elCondition",
+          "expression": "(fileUrl != null AND fileMimeType == 'image/jpeg') OR (fileUrl != null AND fileMimeType == 'application/pdf') OR (fileUrl != null AND fileMimeType == 'application/jpg') OR (fileUrl != null AND fileMimeType == 'application/png')"
+        }
+      ],
+      "label": "sim "
+    }
+  ],
+  "defaultConversationalChannel": "CHAT"
+}
